@@ -2,10 +2,9 @@
 
 namespace Statview\Satellite\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Artisan;
 
-class AboutController extends Controller
+class AboutController
 {
     public function __invoke()
     {

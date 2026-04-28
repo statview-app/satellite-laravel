@@ -3,9 +3,8 @@
 namespace Statview\Satellite\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\MaintenanceMode;
-use Illuminate\Routing\Controller;
 
-class MaintenanceController extends Controller
+class MaintenanceController
 {
     public function __invoke()
     {

@@ -2,10 +2,9 @@
 
 namespace Statview\Satellite\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use Statview\Satellite\Statview;
 
-class StatsController extends Controller
+class StatsController
 {
     public function __invoke()
     {
