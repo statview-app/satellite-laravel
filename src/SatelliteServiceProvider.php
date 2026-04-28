@@ -74,7 +74,7 @@ class SatelliteServiceProvider extends ServiceProvider
                     'Authorization' => 'Bearer ' . config('statview.api_key'),
                 ]);
 
-            if (config('app.env') === 'local') {
+            if (!config('statview.verify_ssl', true)) {
                 $http->withoutVerifying();
             }
 

@@ -22,4 +22,6 @@ return [
     ],
 
     'endpoint' => env('STATVIEW_ENDPOINT', 'https://statview.app'),
+
+    'verify_ssl' => env('STATVIEW_VERIFY_SSL', true),
 ];

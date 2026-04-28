@@ -51,10 +51,8 @@ class Statview
         }
 
         try {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . config('statview.api_key'),
-            ])
-                ->post(config('statview.endpoint') . '/api/timeline/' . config('statview.project_id'), [
+            $response = Http::statviewClient()
+                ->post('timeline/' . config('statview.project_id'), [
                     'title' => $title,
                     'body' => $body,
                     'type' => $type->value,
@@ -69,10 +67,8 @@ class Statview
     public static function getAnnouncements()
     {
         try {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . config('statview.api_key'),
-            ])
-                ->get(config('statview.endpoint') . '/api/' . config('statview.project_id') . '/announcements');
+            $response = Http::statviewClient()
+                ->get(config('statview.project_id') . '/announcements');
 
             return $response->json('data');
         } catch (Exception $exception) {
