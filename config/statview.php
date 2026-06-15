@@ -15,12 +15,6 @@ return [
 
     'project_id' => env('STATVIEW_PROJECT_ID'),
 
-    'monitors' => [
-        'cron' => true,
-
-        'queue' => true,
-    ],
-
     'endpoint' => env('STATVIEW_ENDPOINT', 'https://statview.app'),
 
     'verify_ssl' => env('STATVIEW_VERIFY_SSL', true),
