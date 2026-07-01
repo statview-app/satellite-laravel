@@ -1,9 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Statview\Satellite\Http\Controllers\AboutController;
+use Statview\Satellite\Http\Controllers\MaintenanceController;
+use Statview\Satellite\Http\Controllers\PackagesController;
+use Statview\Satellite\Http\Controllers\StatsController;
 
-Route::get('about', \Statview\Satellite\Http\Controllers\AboutController::class);
+Route::get('about', AboutController::class);
 
-Route::get('stats', \Statview\Satellite\Http\Controllers\StatsController::class);
+Route::get('packages', PackagesController::class);
 
-Route::post('toggle-maintenance', \Statview\Satellite\Http\Controllers\MaintenanceController::class);
+Route::get('stats', StatsController::class);
+
+Route::post('toggle-maintenance', MaintenanceController::class);
