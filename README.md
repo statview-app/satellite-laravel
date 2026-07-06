@@ -141,6 +141,23 @@ Statview::postToTimeline(
 );
 ```
 
+#### Tagging a timeline message
+Attach one or more tags to a timeline message so you can filter your timeline by
+them in Statview. Tags are reusable across events and are created automatically
+the first time you use them.
+
+```php
+use Statview\Satellite\Statview;
+use Statview\Satellite\Enums\PostType;
+
+Statview::postToTimeline(
+    title: 'Deploy finished',
+    body: 'v1.2.3 shipped to production.',
+    type: PostType::Success,
+    tags: ['deploy', 'production'],
+);
+```
+
 ### Gauges
 Increment or decrement a gauge by tag.
 

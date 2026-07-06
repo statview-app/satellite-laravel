@@ -42,7 +42,11 @@ class Statview
         ];
     }
 
-    public static function postToTimeline(string $title, string $body, PostType $type = PostType::Default, ?string $icon = null, array $actions = []): void
+    /**
+     * @param  array<int, Action>  $actions
+     * @param  array<int, string>  $tags
+     */
+    public static function postToTimeline(string $title, string $body, PostType $type = PostType::Default, ?string $icon = null, array $actions = [], array $tags = []): void
     {
         $wrongFormat = array_filter($actions, fn(mixed $action) => !$action instanceof Action);
 
@@ -58,6 +62,7 @@ class Statview
                     'type' => $type->value,
                     'icon' => $icon ?? $type->getIcon(),
                     'actions' => $actions,
+                    'tags' => array_values($tags),
                 ]);
         } catch (Exception $e) {
             info($e);
