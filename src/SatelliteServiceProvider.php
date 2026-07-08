@@ -64,6 +64,8 @@ class SatelliteServiceProvider extends ServiceProvider
             $http = Http::baseUrl(config('statview.endpoint') . '/api/')
                 ->withHeaders([
                     'Authorization' => 'Bearer ' . config('statview.api_key'),
+                    'X-Statview-Client' => 'laravel',
+                    'User-Agent' => 'Statview-Satellite-Laravel',
                 ]);
 
             if (!config('statview.verify_ssl', true)) {

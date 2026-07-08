@@ -36,6 +36,7 @@
       "pestphp/pest-plugin": true
     }
   },
+  "version": "2.99.0",
   "extra": {
     "laravel": {
       "providers": [
