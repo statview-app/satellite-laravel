@@ -93,3 +93,16 @@ it('can authenticate a request', function () {
 
     $response->assertStatus(403);
 });
+
+it('denies access when no api key is configured', function () {
+    Config::set('statview.api_key', null);
+
+    // A tokenless request must not slip through on a null === null comparison.
+    $this->get('/statview/satellite/about')->assertStatus(403);
+
+    // Nor should presenting an empty bearer token match an empty config value.
+    $this
+        ->withHeaders(['Authorization' => 'Bearer '])
+        ->get('/statview/satellite/about')
+        ->assertStatus(403);
+});
